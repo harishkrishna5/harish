@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: myapp.example.com  # Replace with your domain name
+  - host: example.com 
     http:
       paths:
       - path: /
@@ -14,5 +14,14 @@ spec:
         backend:
           service:
             name: patient-service
+            port:
+              number: 80
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: appointment-service
             port:
               number: 80
