@@ -1,0 +1,5 @@
+EKS Endpoint URL
+https://4ACECC4F28A3698BB19DB1AE7C17131C.gr7.us-east-1.eks.amazonaws.com
+
+EKS ARN
+arn:aws:eks:us-east-1:539935451710:cluster/squad6-eks-cluster
