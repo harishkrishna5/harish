@@ -1,0 +1,18 @@
+ name: Docker Build and Push 
+ on:
+   push:
+     paths:
+       - 'Dockerfile'
+       - 'app/**' 
+ jobs: 
+   docker:
+     runs-on: ubuntu-latest
+     steps: 
+     - uses: actions/checkout@v3 
+     - name: Log in to ECR
+       run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 539935451710.dkr.ecr.us-east-1.amazonaws.com
+     - name: Build and Push Docker Image
+       run: |
+         docker build -t testfirst:latest . 
+         docker tag testfirst:latest 539935451710.dkr.ecr.us-west-2.amazonaws.com/testfirst:latest 
+         docker push <your_account_id>.dkr.ecr.us-west-2.amazonaws.com/testfirst:latest
